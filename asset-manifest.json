@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tadam-vol-second/static/css/main.fe9addab.css",
+    "main.js": "/tadam-vol-second/static/js/main.d555fb42.js",
+    "index.html": "/tadam-vol-second/index.html",
+    "main.fe9addab.css.map": "/tadam-vol-second/static/css/main.fe9addab.css.map",
+    "main.d555fb42.js.map": "/tadam-vol-second/static/js/main.d555fb42.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe9addab.css",
+    "static/js/main.d555fb42.js"
+  ]
+}

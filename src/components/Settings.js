@@ -1,17 +1,22 @@
 import React from "react";
+import './Settings.scss';
 
-const Settings = ({ label, time, onIncrease, onDecrease, onTimeChange }) => {
+const Settings = ({ label, labelId, time, onIncrease, onDecrease, onTimeChange }) => {
+
     return (
         <div className="tadam-settings">
-            <label>{label}</label>
-            <input 
-                type="number" 
-                value={time} 
+            <label id={labelId + "-time"}>{label}</label>
+            <input
+                type="number"
+                value={time}
                 onChange={(e) => onTimeChange(e, label)}
                 min="1"
+                id={labelId + "-length"}
             />
-            <button onClick={() => onIncrease(label)}>+</button>
-            <button onClick={() => onDecrease(label)}>-</button>
+            <div className="plus-minus">
+                <button id={labelId + "-increment"} onClick={() => onIncrease(label)}>+</button>
+                <button id={labelId + "-decrement"}onClick={() => onDecrease(label)}>⁃</button>
+            </div>
         </div>
     );
 }

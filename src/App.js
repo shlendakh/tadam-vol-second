@@ -121,16 +121,16 @@ const App = () => {
     } else {
       setCurrentMinutes(sessionTime); // Ustaw na bieżącą wartość
     }
-  
+
     if (typeof breakTime !== "number" || isNaN(breakTime) || breakTime <= 0 || breakTime > 60) {
       setBreakTime(previousBreakTime);
     }
-  
+
     setCurrentSeconds(0);
     setIsRunning(false);
     setIsSession(true);
   };
-  
+
 
   const handleStartPause = () => {
     if (typeof sessionTime !== "number" || isNaN(sessionTime) || sessionTime <= 0 || sessionTime > 60) {
@@ -145,26 +145,30 @@ const App = () => {
   return (
     <div className="app">
       <header>Tadam (well... almost)</header>
-      <Settings
-        label="Session Time"
-        time={sessionTime}
-        onIncrease={handleIncrease}
-        onDecrease={handleDecrease}
-        onTimeChange={handleTimeChange}
-      />
-      <Settings
-        label="Break Time"
-        time={breakTime}
-        onIncrease={handleIncrease}
-        onDecrease={handleDecrease}
-        onTimeChange={handleTimeChange}
-      />
       <Timer minutes={currentMinutes} seconds={currentSeconds} />
-      <Controls
+      <div className="settings-box">
+        <Settings
+          label="Session Time"
+          labelId="session"
+          time={sessionTime}
+          onIncrease={handleIncrease}
+          onDecrease={handleDecrease}
+          onTimeChange={handleTimeChange}
+        />
+        <Controls
         onStartPause={handleStartPause}
         onReset={handleReset}
         isRunning={isRunning}
       />
+        <Settings
+          label="Break Time"
+          labelId="break"
+          time={breakTime}
+          onIncrease={handleIncrease}
+          onDecrease={handleDecrease}
+          onTimeChange={handleTimeChange}
+        />
+      </div>
     </div>
   );
 }

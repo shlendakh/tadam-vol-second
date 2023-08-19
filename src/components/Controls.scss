@@ -1,0 +1,29 @@
+@import '../styles/variables';
+
+.tadam-controls {
+    
+    width: 30vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    button {
+        border: none;
+        background-color: rgba(0,0,0,0);
+        font-size: 1.8rem;
+        color: $font-color-2;
+        height: 3rem;
+        width: 75px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button:hover {
+        color: $accent-color-1;
+        font-size: 1.8rem;
+    }
+}

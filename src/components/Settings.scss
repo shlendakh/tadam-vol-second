@@ -1,0 +1,61 @@
+@import '../styles/variables';
+
+.tadam-settings {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: calc(.7rem + 5px);
+
+    label {
+        font-size: .7rem;
+        width: 100%;
+        text-align: center;
+        margin: 0 0 5px 0;
+
+        font-weight: 300;
+    }
+
+    input {
+        border: none;
+        padding: 2px;
+        border-radius: 4px;
+
+        width: 3rem;
+
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    input:focus {
+        outline: none;
+        padding: 0px;
+        border: 2px solid $accent-color-1;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+
+    button {
+        color: $font-color-1;
+        font-size: 1rem;
+        
+        width: 1.5rem;
+        height: 50%;
+        border: none;
+        border-radius: 2rem;
+        margin: 0 0 0 5px;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button:hover {
+        background-color: $accent-color-2;
+        color: $font-color-1;
+    }
+}

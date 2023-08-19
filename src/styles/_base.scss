@@ -1,3 +1,5 @@
+@import './variables';
+
 /* Base HTML */
 
 #root {
@@ -6,6 +8,7 @@
 
 html {
     font-size: $font-size;
+    color: $font-color-1;
 }
 
 body {
@@ -15,4 +18,5 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: $background-color;
 }

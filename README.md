@@ -8,28 +8,6 @@ A simple, React-based Pomodoro timer designed to help manage productivity sessio
 - Audible notification sounds for transitions.
 - Intuitive UI controls for managing your sessions.
 
-## Setup
-
-1. Clone the repository:
-   ```bash
-   git clone [link-do-twojego-repo]
-   ```
-
-2. Navigate to the directory:
-   ```bash
-   cd nazwa_folderu_z_twoim_projektem
-   ```
-
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-4. Run the app:
-   ```bash
-   npm start
-   ```
-
 The application should now be running on `http://localhost:3000`.
 
 ## Used Libraries & Assets

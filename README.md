@@ -8,8 +8,6 @@ A simple, React-based Pomodoro timer designed to help manage productivity sessio
 - Audible notification sounds for transitions.
 - Intuitive UI controls for managing your sessions.
 
-The application should now be running on `http://localhost:3000`.
-
 ## Used Libraries & Assets
 
 ### React

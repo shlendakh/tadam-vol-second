@@ -12,6 +12,8 @@ const App = () => {
   const [currentSeconds, setCurrentSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [isSession, setIsSession] = useState(true);
+  const [previousSessionTime, setPreviousSessionTime] = useState(25);
+  const [previousBreakTime, setPreviousBreakTime] = useState(5);
 
   // component did mount
   useEffect(() => {
@@ -64,12 +66,17 @@ const App = () => {
     if (label === "Session Time") {
       setSessionTime(prev => {
         const updatedTime = Math.min(prev + 1, 60);
-        setCurrentMinutes(updatedTime);  // Aktualizuj currentMinutes
+        setCurrentMinutes(updatedTime);
         setCurrentSeconds(0);
+        setPreviousSessionTime(updatedTime);  // Aktualizuj previousSessionTime
         return updatedTime;
       });
     } else {
-      setBreakTime(prev => Math.min(prev + 1, 60));
+      setBreakTime(prev => {
+        const updatedTime = Math.min(prev + 1, 60);
+        setPreviousBreakTime(updatedTime);  // Aktualizuj previousBreakTime
+        return updatedTime;
+      });
     }
   };
 
@@ -77,29 +84,62 @@ const App = () => {
     if (label === "Session Time") {
       setSessionTime(prev => {
         const updatedTime = Math.max(prev - 1, 1);
-        setCurrentMinutes(updatedTime);  // Aktualizuj currentMinutes
+        setCurrentMinutes(updatedTime);
         setCurrentSeconds(0);
+        setPreviousSessionTime(updatedTime);  // Aktualizuj previousSessionTime
         return updatedTime;
       });
     } else {
-      setBreakTime(prev => Math.max(prev - 1, 1));
+      setBreakTime(prev => {
+        const updatedTime = Math.max(prev - 1, 1);
+        setPreviousBreakTime(updatedTime);  // Aktualizuj previousBreakTime
+        return updatedTime;
+      });
     }
   };
 
   const handleTimeChange = (e, label) => {
-    const value = parseInt(e.target.value);
+    const value = e.target.value === "" ? "" : parseInt(e.target.value);
+
     if (label === "Session Time") {
-      setSessionTime(Math.max(1, value));
+      setPreviousSessionTime(sessionTime);
+      setSessionTime(value);
+      if (typeof value === "number" && !isNaN(value) && value > 0 && value <= 60) {
+        setCurrentMinutes(value);
+        setCurrentSeconds(0);
+      }
     } else {
-      setBreakTime(Math.max(1, value));
+      setPreviousBreakTime(breakTime);
+      setBreakTime(value);
     }
   };
 
   const handleReset = () => {
+    if (typeof sessionTime !== "number" || isNaN(sessionTime) || sessionTime <= 0 || sessionTime > 60) {
+      setSessionTime(previousSessionTime);
+      setCurrentMinutes(previousSessionTime); // Ustaw na poprzednią wartość
+    } else {
+      setCurrentMinutes(sessionTime); // Ustaw na bieżącą wartość
+    }
+  
+    if (typeof breakTime !== "number" || isNaN(breakTime) || breakTime <= 0 || breakTime > 60) {
+      setBreakTime(previousBreakTime);
+    }
+  
+    setCurrentSeconds(0);
     setIsRunning(false);
     setIsSession(true);
-    setCurrentMinutes(sessionTime);
-    setCurrentSeconds(0);
+  };
+  
+
+  const handleStartPause = () => {
+    if (typeof sessionTime !== "number" || isNaN(sessionTime) || sessionTime <= 0 || sessionTime > 60) {
+      setSessionTime(previousSessionTime);
+    }
+    if (typeof breakTime !== "number" || isNaN(breakTime) || breakTime <= 0 || breakTime > 60) {
+      setBreakTime(previousBreakTime);
+    }
+    setIsRunning(!isRunning);
   };
 
   return (
@@ -121,7 +161,7 @@ const App = () => {
       />
       <Timer minutes={currentMinutes} seconds={currentSeconds} />
       <Controls
-        onStartPause={() => setIsRunning(!isRunning)}
+        onStartPause={handleStartPause}
         onReset={handleReset}
         isRunning={isRunning}
       />

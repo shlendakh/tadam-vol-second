@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tadam-vol-second/static/css/main.fe9addab.css",
-    "main.js": "/tadam-vol-second/static/js/main.154d54da.js",
+    "main.css": "/tadam-vol-second/static/css/main.766c62ae.css",
+    "main.js": "/tadam-vol-second/static/js/main.00fe526e.js",
     "index.html": "/tadam-vol-second/index.html",
-    "main.fe9addab.css.map": "/tadam-vol-second/static/css/main.fe9addab.css.map",
-    "main.154d54da.js.map": "/tadam-vol-second/static/js/main.154d54da.js.map"
+    "main.766c62ae.css.map": "/tadam-vol-second/static/css/main.766c62ae.css.map",
+    "main.00fe526e.js.map": "/tadam-vol-second/static/js/main.00fe526e.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe9addab.css",
-    "static/js/main.154d54da.js"
+    "static/css/main.766c62ae.css",
+    "static/js/main.00fe526e.js"
   ]
 }

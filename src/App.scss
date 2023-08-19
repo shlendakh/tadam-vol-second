@@ -1,0 +1,14 @@
+@import './styles/variables';
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: $font;
+    font-weight: 100;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    
+    height: calc(var(--vh, 1vh) * 100);
+}
